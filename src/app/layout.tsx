@@ -8,7 +8,6 @@ export const metadata = {
 
 const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-outfit",
 });
 
 export default function RootLayout({
@@ -18,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable}`}>{children}</body>
+      <body>
+        <main className={`${outfit.className}`}>{children}</main>
+      </body>
     </html>
   );
 }
