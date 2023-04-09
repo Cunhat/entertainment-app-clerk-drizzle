@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Heading } from "@/components/ui/Heading";
+import { Body } from "@/components/ui/Body";
 
 export default function Home() {
   return (
@@ -16,6 +17,12 @@ export default function Home() {
       <Heading className="text-pink-500" size="xs">
         Hello World
       </Heading>
+      <Body className="text-pink-500" size="md">
+        Hello World
+      </Body>
+      <Body className="text-pink-500" size="sm">
+        Hello World
+      </Body>
     </main>
   );
 }
