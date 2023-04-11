@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Heading } from "@/components/ui/Heading";
 import { Body } from "@/components/ui/Body";
 import { Button, ButtonStyles } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       </Body>
       <Button>Login to your account</Button>
       <button className={ButtonStyles()}>Teste</button>
+      <Input placeholder="Email address" />
     </main>
   );
 }
