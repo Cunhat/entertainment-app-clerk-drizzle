@@ -1,28 +1,31 @@
 import Image from "next/image";
 import { Heading } from "@/components/ui/Heading";
 import { Body } from "@/components/ui/Body";
+import { Button, ButtonStyles } from "@/components/ui/Button";
 
 export default function Home() {
   return (
     <main className="flex  flex-col items-center ">
-      <Heading className="text-pink-500" size="lg">
+      <Heading className="text-custom-red" size="lg">
         Hello World
       </Heading>
-      <Heading className="text-pink-500" size="md">
+      <Heading className="text-custom-red" size="md">
         Hello World
       </Heading>
-      <Heading className="text-pink-500" size="sm">
+      <Heading className="text-custom-red" size="sm">
         Hello World
       </Heading>
-      <Heading className="text-pink-500" size="xs">
+      <Heading className="text-custom-red" size="xs">
         Hello World
       </Heading>
-      <Body className="text-pink-500" size="md">
+      <Body className="text-custom-red" size="md">
         Hello World
       </Body>
-      <Body className="text-pink-500" size="sm">
+      <Body className="text-custom-red" size="sm">
         Hello World
       </Body>
+      <Button>Login to your account</Button>
+      <button className={ButtonStyles()}>Teste</button>
     </main>
   );
 }
