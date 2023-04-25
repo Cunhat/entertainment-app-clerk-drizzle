@@ -22,6 +22,9 @@ module.exports = {
             200: "#5A698F",
           }
         }
+      },
+      backgroundImage: {
+        thumbnail: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/play.png');",
       }
     },
   },
