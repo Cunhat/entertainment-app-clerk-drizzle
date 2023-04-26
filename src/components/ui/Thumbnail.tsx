@@ -1,25 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Heading } from "./Heading";
+import { Body } from "./Body";
+import { ItemTitle } from "./ItemTitle";
 
-type Props = {};
+type Props = { isTrending?: boolean; type?: "movie" | "tvSeries" };
 
-export const Thumbnail: React.FC<Props> = ({}) => {
+export const Thumbnail: React.FC<Props> = ({ isTrending, type }) => {
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className="w-full h-full rounded-lg relative"
+      className="w-full h-full rounded-lg relative bg-[url('/large.jpg')] bg-cover bg-center flex"
       onMouseEnter={() => setIsHovered(!isHovered)}
       onMouseLeave={() => setIsHovered(!isHovered)}
     >
-      <Image
-        width={0}
-        height={0}
-        className="w-full h-auto rounded-lg"
-        sizes="100vw"
-        src="/large.jpg"
-        alt="Thumbnail"
-      />
+      {isTrending && (
+        <div className="absolute bottom-6 left-6 flex flex-col gap-1">
+          <ItemTitle type={type!} />
+        </div>
+      )}
       {isHovered && (
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-gradient-to-r from-[#00000080] to-[#00000080] z-10">
           <Image

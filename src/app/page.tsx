@@ -33,6 +33,7 @@ export default function Home() {
       <Search />
       <div className="w-[255px] h-[174px]">
         <Thumbnail />
+        <Thumbnail isTrending type="movie" />
       </div>
     </main>
   );
