@@ -24,7 +24,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        thumbnail: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/play.png');",
+        thumbnail: "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))",
       }
     },
   },

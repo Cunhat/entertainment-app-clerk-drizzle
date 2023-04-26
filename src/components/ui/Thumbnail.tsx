@@ -1,12 +1,17 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
-import Thumb from "public/svg/thumb.svg";
 
 type Props = {};
 
 export const Thumbnail: React.FC<Props> = ({}) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="w-full h-full rounded-lg hover:bg-thumbnail">
+    <div
+      className="w-full h-full rounded-lg relative"
+      onMouseEnter={() => setIsHovered(!isHovered)}
+      onMouseLeave={() => setIsHovered(!isHovered)}
+    >
       <Image
         width={0}
         height={0}
@@ -15,7 +20,17 @@ export const Thumbnail: React.FC<Props> = ({}) => {
         src="/large.jpg"
         alt="Thumbnail"
       />
-      <div></div>
+      {isHovered && (
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-gradient-to-r from-[#00000080] to-[#00000080] z-10">
+          <Image
+            src={"/play.png"}
+            alt="Thumbnail"
+            width={117}
+            height={48}
+            className="hover:cursor-pointer"
+          />
+        </div>
+      )}
     </div>
   );
 };
