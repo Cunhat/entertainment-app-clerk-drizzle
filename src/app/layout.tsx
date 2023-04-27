@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Outfit } from "next/font/google"
+import { ClerkProvider } from "@clerk/nextjs/app-beta"
 
 export const metadata = {
   title: "Create Next App",
@@ -18,9 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main className={`${outfit.className}`}>{children}</main>
-      </body>
+      <ClerkProvider>
+        <body>
+          <main className={`${outfit.className}`}>{children}</main>
+        </body>
+      </ClerkProvider>
     </html>
   )
 }
