@@ -1,14 +1,16 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import { Heading } from "./Heading";
-import { Body } from "./Body";
-import { ItemTitle } from "./ItemTitle";
+"use client"
 
-type Props = { isTrending?: boolean; type?: "movie" | "tvSeries" };
+import React, { useState } from "react"
+import Image from "next/image"
+
+import { Body } from "./Body"
+import { Heading } from "./Heading"
+import { ItemTitle } from "./ItemTitle"
+
+type Props = { isTrending?: boolean; type?: "movie" | "tvSeries" }
 
 export const Thumbnail: React.FC<Props> = ({ isTrending, type }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div
@@ -33,5 +35,5 @@ export const Thumbnail: React.FC<Props> = ({ isTrending, type }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
