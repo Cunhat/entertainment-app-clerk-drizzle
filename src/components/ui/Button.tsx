@@ -1,7 +1,7 @@
-import React from "react";
-import { cva, VariantProps } from "class-variance-authority";
+import React from "react"
+import { VariantProps, cva } from "class-variance-authority"
 
-const ButtonStyles = cva("rounded-md text-[15px] font-light w-[336px] h-12", {
+const ButtonStyles = cva("rounded-md text-[15px] font-light  h-12", {
   variants: {
     variant: {
       primary:
@@ -11,7 +11,7 @@ const ButtonStyles = cva("rounded-md text-[15px] font-light w-[336px] h-12", {
   defaultVariants: {
     variant: "primary",
   },
-});
+})
 
 interface ButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
@@ -25,8 +25,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       />
-    );
+    )
   }
-);
+)
 
-export { Button, ButtonStyles };
+export { Button, ButtonStyles }

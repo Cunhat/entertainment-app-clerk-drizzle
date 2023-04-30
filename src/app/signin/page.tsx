@@ -9,9 +9,9 @@ import { Heading } from "@/components/ui/Heading"
 
 export default function Login() {
   return (
-    <main className="flex flex-col items-center h-screen bg-custom-bue-900 gap-[58px] md:gap-20 pt-12 md:pt-20">
+    <main className="flex flex-col items-center h-screen bg-custom-bue-900 gap-[58px] md:gap-20 pt-12 md:pt-20 px-6">
       <Image src={"/logo.svg"} width={32} height={25} alt="logoImg" priority />
-      <div className="p-6 bg-custom-bue-700 rounded-[20px] flex flex-col gap-10">
+      <div className="p-6 bg-custom-bue-700 rounded-[20px] flex flex-col gap-10 w-full max-w-[400px]">
         <Heading size="lg">Login</Heading>
         <SignInButton redirectUrl="/">
           <Button>Login to your account</Button>
