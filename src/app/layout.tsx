@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Outfit } from "next/font/google"
+import Image from "next/image"
 import { ClerkProvider } from "@clerk/nextjs/app-beta"
 
 export const metadata = {
@@ -21,7 +22,64 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider>
         <body>
-          <main className={`${outfit.className}`}>{children}</main>
+          <main
+            className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] grid-cols-1  bg-custom-bue-900 h-screen`}
+          >
+            <div className="bg-custom-bue-700 p-4 md:p-6 lg:p-6 md:rounded-[10px] flex box-border md:box-border items-center">
+              <Image
+                src="/logo.svg"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="h-5 w-6 md:h-8 md:w-8"
+                alt="logoMainPage"
+              />
+              <div className="flex gap-6 md:gap-8 lg:gap-10 ml-auto">
+                <Image
+                  src="/svg/icon-nav-home.svg"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                  alt="logoMainPage"
+                />
+                <Image
+                  src="/svg/icon-nav-movies.svg"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                  alt="logoMainPage"
+                />
+                <Image
+                  src="/svg/icon-nav-tv-series.svg"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                  alt="logoMainPage"
+                />
+                <Image
+                  src="/svg/icon-nav-bookmark.svg"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="h-4 w-4 md:h-5 md:w-5"
+                  alt="logoMainPage"
+                />
+              </div>
+              <Image
+                src="/image-avatar.png"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="h-6 w-6 md:h-8 md:w-8 ml-auto"
+                alt="logoMainPage"
+              />
+            </div>
+
+            <main className="">{children}</main>
+          </main>
         </body>
       </ClerkProvider>
     </html>
