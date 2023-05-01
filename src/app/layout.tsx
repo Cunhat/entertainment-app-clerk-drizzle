@@ -1,7 +1,11 @@
 import "./globals.css"
 import { Outfit } from "next/font/google"
 import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import { ClerkProvider } from "@clerk/nextjs/app-beta"
+
+import { NavBar } from "@/components/NavBar"
 
 export const metadata = {
   title: "Create Next App",
@@ -26,58 +30,7 @@ export default function RootLayout({
             className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] lg:grid-cols-[128px_auto] grid-cols-1 lg:grid-rows-1 bg-custom-bue-900 h-screen`}
           >
             <div className="md:p-6 lg:p-0 lg:h-full lg:py-8 lg:pl-8">
-              <div className="bg-custom-bue-700 p-4 md:p-6 lg:p-0 lg:py-8 md:rounded-[10px] flex box-border md:box-border items-center lg:flex-col lg:h-full lg:gap-20">
-                <Image
-                  src="/logo.svg"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="h-5 w-6 md:h-8 md:w-8"
-                  alt="logoMainPage"
-                />
-                <div className="flex gap-6 md:gap-8 lg:gap-10 ml-auto lg:ml-0 lg:flex-col items-center">
-                  <Image
-                    src="/svg/icon-nav-home.svg"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="h-4 w-4 md:h-5 md:w-5"
-                    alt="logoMainPage"
-                  />
-                  <Image
-                    src="/svg/icon-nav-movies.svg"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="h-4 w-4 md:h-5 md:w-5"
-                    alt="logoMainPage"
-                  />
-                  <Image
-                    src="/svg/icon-nav-tv-series.svg"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="h-4 w-4 md:h-5 md:w-5"
-                    alt="logoMainPage"
-                  />
-                  <Image
-                    src="/svg/icon-nav-bookmark.svg"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="h-4 w-4 md:h-5 md:w-5"
-                    alt="logoMainPage"
-                  />
-                </div>
-                <Image
-                  src="/image-avatar.png"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="h-6 w-6 md:h-8 md:w-8 ml-auto lg:ml-0 lg:mt-auto"
-                  alt="logoMainPage"
-                />
-              </div>
+              <NavBar />
             </div>
             <main className="">{children}</main>
           </main>
