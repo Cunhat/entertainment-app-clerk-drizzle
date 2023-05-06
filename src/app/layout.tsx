@@ -3,7 +3,8 @@ import { Outfit } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { ClerkProvider } from "@clerk/nextjs/app-beta"
+import { ClerkProvider, SignedIn, SignedOut } from "@clerk/nextjs/app-beta"
+import { dark } from "@clerk/themes"
 
 import { NavBar } from "@/components/NavBar"
 
@@ -24,16 +25,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ClerkProvider>
+      <ClerkProvider
+        appearance={{
+          baseTheme: dark,
+        }}
+      >
         <body>
-          <main
-            className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] lg:grid-cols-[128px_auto] grid-cols-1 lg:grid-rows-1 bg-custom-bue-900 h-screen`}
-          >
-            <div className="md:p-6 lg:p-0 lg:h-full lg:py-8 lg:pl-8">
-              <NavBar />
-            </div>
-            <main className="">{children}</main>
-          </main>
+          <SignedOut>
+            <main className={`${outfit.className}`}>{children}</main>
+          </SignedOut>
+          <SignedIn>
+            <main
+              className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] lg:grid-cols-[128px_auto] grid-cols-1 lg:grid-rows-1 bg-custom-bue-900 h-screen`}
+            >
+              <div className="md:p-6 lg:p-0 lg:h-full lg:py-8 lg:pl-8">
+                <NavBar />
+              </div>
+              <main className="">{children}</main>
+            </main>
+          </SignedIn>
         </body>
       </ClerkProvider>
     </html>
