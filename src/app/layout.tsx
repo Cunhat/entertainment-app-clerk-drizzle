@@ -36,12 +36,14 @@ export default function RootLayout({
           </SignedOut>
           <SignedIn>
             <main
-              className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] lg:grid-cols-[96px_auto] grid-cols-1 lg:grid-rows-1 bg-custom-bue-900 h-screen md:pt-6 lg:pl-8`}
+              className={`${outfit.className} grid grid-rows-[56px_auto] md:grid-rows-[72px_auto] lg:grid-cols-[96px_1fr] grid-cols-1 lg:grid-rows-1 bg-custom-bue-900 h-screen md:pt-6 lg:pl-8`}
             >
               <div className="lg:h-full  box-border md:px-6 lg:px-0 lg:pb-8">
                 <NavBar />
               </div>
-              <main className="md:pl-6 md:pt-8 pt-6 pl-4">{children}</main>
+              <main className="md:pl-6 md:pt-8 pt-6 pl-4 overflow-auto">
+                {children}
+              </main>
             </main>
           </SignedIn>
         </body>
