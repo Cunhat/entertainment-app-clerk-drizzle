@@ -2,6 +2,7 @@ import Image from "next/image"
 import { SignIn } from "@clerk/nextjs"
 import { useClerk } from "@clerk/nextjs/app-beta/client"
 
+import { StreamItem } from "@/components/StreamItem"
 import { Body } from "@/components/ui/Body"
 import { Button, ButtonStyles } from "@/components/ui/Button"
 import { Heading } from "@/components/ui/Heading"
@@ -21,28 +22,23 @@ export default function Home() {
           <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
           <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
           <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
         </div>
       </section>
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 h-full max-w-full">
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
-          <div className="bg-pink-200 h-full"></div>
+        <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll h-full">
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
+          <StreamItem type="movie" />
         </div>
       </section>
     </main>

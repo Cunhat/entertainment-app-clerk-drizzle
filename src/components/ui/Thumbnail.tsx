@@ -3,11 +3,9 @@
 import React, { useState } from "react"
 import Image from "next/image"
 
-import { Body } from "./Body"
-import { Heading } from "./Heading"
 import { ItemTitle } from "./ItemTitle"
 
-type Props = { isTrending?: boolean; type?: "movie" | "tvSeries" }
+type Props = { isTrending?: boolean; type: "movie" | "tvSeries" }
 
 export const Thumbnail: React.FC<Props> = ({ isTrending, type }) => {
   const [isHovered, setIsHovered] = useState(false)

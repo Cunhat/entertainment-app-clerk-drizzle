@@ -1,36 +1,37 @@
-import React from "react";
-import Image from "next/image";
-import { Heading } from "./Heading";
-import { Body } from "./Body";
+import React from "react"
+import Image from "next/image"
+
+import { Body } from "./Body"
+import { Heading } from "./Heading"
 
 export const ItemTitle: React.FC<{ type: "movie" | "tvSeries" }> = ({
   type,
 }) => {
   const getIcon = () => {
-    let result: string;
+    let result: string
     switch (type) {
       case "movie":
-        result = "/svg/icon-category-movie.svg";
-        break;
+        result = "/svg/icon-category-movie.svg"
+        break
       default:
-        result = "/svg/icon-category-tv.png";
-        break;
+        result = "/svg/icon-category-tv.png"
+        break
     }
-    return <Image src={result} alt="type" width={12} height={12} />;
-  };
+    return <Image src={result} alt="type" width={12} height={12} />
+  }
 
   const translateType = () => {
-    let result: string;
+    let result: string
     switch (type) {
       case "movie":
-        result = "Movie";
-        break;
+        result = "Movie"
+        break
       default:
-        result = "TV Series";
-        break;
+        result = "TV Series"
+        break
     }
-    return result;
-  };
+    return result
+  }
   return (
     <>
       <div className="flex gap-2">
@@ -43,7 +44,7 @@ export const ItemTitle: React.FC<{ type: "movie" | "tvSeries" }> = ({
         <Body size="md">•</Body>
         <Body size="md">PG</Body>
       </div>
-      <Heading size="sm">Trending</Heading>
+      <Heading size="sm">Title</Heading>
     </>
-  );
-};
+  )
+}
