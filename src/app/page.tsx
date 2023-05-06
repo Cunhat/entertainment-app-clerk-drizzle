@@ -10,5 +10,9 @@ import { Search } from "@/components/ui/Search"
 import { Thumbnail } from "@/components/ui/Thumbnail"
 
 export default function Home() {
-  return <main className="flex  flex-col items-center "></main>
+  return (
+    <main className="flex flex-col ">
+      <Search />
+    </main>
+  )
 }

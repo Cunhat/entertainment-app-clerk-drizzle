@@ -41,7 +41,7 @@ const UserProfileNavbar: React.FC = () => {
 
 export const NavBar = () => {
   return (
-    <div className="bg-custom-bue-700 p-4 md:p-6 lg:p-0 lg:py-8 md:rounded-[10px] flex box-border md:box-border items-center lg:flex-col lg:h-full lg:gap-20">
+    <div className="bg-custom-bue-700 px-4 md:rounded-[10px] h-full flex box-border md:box-border items-center lg:flex-col lg:h-full lg:gap-20 lg:py-8">
       <Image
         src="/logo.svg"
         width={0}
