@@ -27,7 +27,7 @@ const NavBarItem: React.FC<{ href: string; icon: React.ReactElement }> = ({
       <div
         className={`${
           router === href ? "fill-white" : "fill-[#5A698F]"
-        } hover:fill-white`}
+        } hover:fill-custom-red`}
       >
         {icon}
       </div>
