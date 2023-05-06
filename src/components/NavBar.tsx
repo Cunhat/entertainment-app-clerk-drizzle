@@ -4,7 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import { Movies } from "@/components/svg/Movies"
 import { Home } from "@/components/svg/home"
+import { Bookmarked } from "./svg/Bookmarked"
+import { TvSeries } from "./svg/TvSeries"
 
 const NavBarItem: React.FC<{ href: string; icon: React.ReactElement }> = ({
   href,
@@ -37,41 +40,15 @@ export const NavBar = () => {
         alt="logoMainPage"
       />
       <div className="flex gap-6 md:gap-8 lg:gap-10 ml-auto lg:ml-0 lg:flex-col items-center">
+        <NavBarItem href={"/"} icon={<Home className=" h-5 w-5" />} />
+        <NavBarItem href={"/movies"} icon={<Movies className=" h-5 w-5" />} />
         <NavBarItem
-          href={"/"}
-          icon={<Home className="h-4 w-4 md:h-5 md:w-5" />}
+          href={"/tvseries"}
+          icon={<TvSeries className=" h-5 w-5" />}
         />
-        <Image
-          src="/svg/icon-nav-home.svg"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-4 w-4 md:h-5 md:w-5"
-          alt="logoMainPage"
-        />
-        <Image
-          src="/svg/icon-nav-movies.svg"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-4 w-4 md:h-5 md:w-5"
-          alt="logoMainPage"
-        />
-        <Image
-          src="/svg/icon-nav-tv-series.svg"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-4 w-4 md:h-5 md:w-5"
-          alt="logoMainPage"
-        />
-        <Image
-          src="/svg/icon-nav-bookmark.svg"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-4 w-4 md:h-5 md:w-5"
-          alt="logoMainPage"
+        <NavBarItem
+          href={"/bookmarked"}
+          icon={<Bookmarked className=" h-5 w-5" />}
         />
       </div>
       <Image
