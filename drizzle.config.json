@@ -1,0 +1,5 @@
+{
+    "out": "./migrations",
+    "schema": "./src/db",
+    "connectionString": "mysql://z279q25bie2olvq6u9xz:pscale_pw_gizgiN2VDvwkkKwe9WTsCMuCD9oR3saDKL2CYJ79NMs@aws.connect.psdb.cloud/entertainment-app?ssl={\"rejectUnauthorized\":true}"
+}

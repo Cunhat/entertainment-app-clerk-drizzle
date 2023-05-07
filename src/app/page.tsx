@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { getUsers } from "@/db/db"
 import { SignIn } from "@clerk/nextjs"
 import { useClerk } from "@clerk/nextjs/app-beta/client"
 
@@ -10,19 +11,36 @@ import { Input } from "@/components/ui/Input"
 import { Search } from "@/components/ui/Search"
 import { Thumbnail } from "@/components/ui/Thumbnail"
 
-export default function Home() {
+const TrendingItem: React.FC<{ type: "movie" | "tvSeries" }> = ({ type }) => {
+  return (
+    <div className="min-h-[140px] min-w-[240px] md:min-w-[470px] md:min-h-[230px] flex-[0_0_auto] ">
+      <Thumbnail type={type} isTrending />
+    </div>
+  )
+}
+
+const Trending: React.FC = () => {
+  return (
+    <div className="flex flex-nowrap overflow-x-auto gap-4 ">
+      <TrendingItem type="movie" />
+      <TrendingItem type="tvSeries" />
+      <TrendingItem type="tvSeries" />
+      <TrendingItem type="movie" />
+      <TrendingItem type="tvSeries" />
+      <TrendingItem type="movie" />
+      <TrendingItem type="tvSeries" />
+    </div>
+  )
+}
+
+export default async function Home() {
+  const teste = await getUsers()
   return (
     <main className="flex w-full h-full flex-col gap-6 ">
       <Search />
       <section className="flex flex-col">
         <Heading size="lg">Trending</Heading>
-        <div className="flex flex-nowrap overflow-x-auto gap-4 ">
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-          <div className="bg-pink-200 h-[140px] w-[240px] flex-[0_0_auto] "></div>
-        </div>
+        <Trending />
       </section>
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
