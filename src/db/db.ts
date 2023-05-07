@@ -4,9 +4,9 @@ import {streamItem} from './schema'
 
 
 const config = {
-  host: 'aws.connect.psdb.cloud/entertainment-app',
-  username: "z279q25bie2olvq6u9xz",
-  password: 'pscale_pw_gizgiN2VDvwkkKwe9WTsCMuCD9oR3saDKL2CYJ79NMs'
+  host: process.env.DB_HOST,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD
 }
 
 
