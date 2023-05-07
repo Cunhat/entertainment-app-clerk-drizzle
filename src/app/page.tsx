@@ -26,7 +26,7 @@ export default function Home() {
       </section>
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
-        <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll h-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll ">
           <StreamItem type="movie" />
           <StreamItem type="movie" />
           <StreamItem type="movie" />

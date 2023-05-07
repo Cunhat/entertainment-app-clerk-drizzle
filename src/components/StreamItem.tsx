@@ -13,7 +13,7 @@ export const StreamItem: React.FC<StreamProps> = ({
   isTrending = false,
 }) => {
   return (
-    <div className="flex flex-col min-h-[164px]">
+    <div className="flex flex-col min-h-[164px] md:min-h-[220px] max-h-[328px]">
       <Thumbnail type={type} isTrending={isTrending} />
       <ItemTitle type={type} />
     </div>
