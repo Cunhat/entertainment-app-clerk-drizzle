@@ -18,20 +18,30 @@ import {
       isTrending: boolean("is_trending"),
       releaseDate: datetime("release_date"),
       thumbnailUrl: varchar("thumbnail_url", { length: 256 }),
+      typeId: int("type_id"),
+      classificationId: int("classification_id"),
     },
     (streamItem) => ({
       nameIndex: uniqueIndex("name_idx").on(streamItem.name),
+      typeIdIndex: uniqueIndex("type_id_idx").on(streamItem.typeId),
+      classificationIdIndex: uniqueIndex("classification_id_idx").on(streamItem.classificationId),
     })
+    
+  );
+
+  export const type = mysqlTable(
+    "type",
+    {
+      id: serial("id").primaryKey(),
+      name: varchar("name", { length: 256 }),
+    }
+  );
+
+  export const classification = mysqlTable(
+    "classification",
+    {
+      id: serial("id").primaryKey(),
+      name: varchar("name", { length: 256 }),
+    }
   );
   
-//   export const citizens = mysqlTable(
-//     "citizens",
-//     {
-//       id: serial("id").primaryKey(),
-//       fullName: varchar("full_name", { length: 256 }),
-//       countryCode: int("country_code"),
-//     },
-//     (citizen) => ({
-//       countryIndex: uniqueIndex("country_idx").on(citizen.countryCode),
-//     })
-//   );
