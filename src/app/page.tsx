@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { getUsers } from "@/db/db"
+import { getStreamItems } from "@/db/db"
 import { SignIn } from "@clerk/nextjs"
 import { useClerk } from "@clerk/nextjs/app-beta/client"
 
@@ -34,7 +34,10 @@ const Trending: React.FC = () => {
 }
 
 export default async function Home() {
-  const teste = await getUsers()
+  const streamItems = await getStreamItems()
+
+  console.log(streamItems)
+
   return (
     <main className="flex w-full h-full flex-col gap-6 ">
       <Search />
@@ -45,18 +48,16 @@ export default async function Home() {
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-scroll ">
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
-          <StreamItem type="movie" />
+          {streamItems.map((item) => (
+            <StreamItem
+              key={item.stream_item.id}
+              type={item.category?.name as "movie" | "tvSeries"}
+              rating={item?.rating?.name!}
+              year={item.stream_item.year!}
+              title={item.stream_item.title!}
+              thumbnailUrl={item.stream_item.thumbnailUrl!}
+            />
+          ))}
         </div>
       </section>
     </main>

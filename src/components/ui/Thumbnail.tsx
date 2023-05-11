@@ -5,14 +5,26 @@ import Image from "next/image"
 
 import { ItemTitle } from "./ItemTitle"
 
-type Props = { isTrending?: boolean; type: "movie" | "tvSeries" }
+type Props = {
+  isTrending?: boolean
+  type: "movie" | "tvSeries"
+  thumbnailUrl: string
+}
 
-export const Thumbnail: React.FC<Props> = ({ isTrending, type }) => {
+export const Thumbnail: React.FC<Props> = ({
+  isTrending,
+  type,
+  thumbnailUrl,
+}) => {
   const [isHovered, setIsHovered] = useState(false)
+
+  console.log(thumbnailUrl)
 
   return (
     <div
-      className="w-full h-full rounded-lg relative bg-[url('/large.jpg')] bg-cover bg-center flex"
+      className={`w-full h-full rounded-lg relative bg-[url(${
+        thumbnailUrl ?? "/large.jpg"
+      })] bg-cover bg-center flex`}
       onMouseEnter={() => setIsHovered(!isHovered)}
       onMouseLeave={() => setIsHovered(!isHovered)}
     >

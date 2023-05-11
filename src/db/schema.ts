@@ -2,11 +2,12 @@
 import {
     boolean,
     datetime,
+    index,
     int,
     mysqlTable,
     serial,
     uniqueIndex,
-    varchar,
+    varchar
   } from "drizzle-orm/mysql-core";
   
   // declaring enum in database
@@ -14,31 +15,31 @@ import {
     "stream_item",
     {
       id: serial("id").primaryKey(),
-      name: varchar("name", { length: 256 }),
-      isTrending: boolean("is_trending"),
-      releaseDate: datetime("release_date"),
-      thumbnailUrl: varchar("thumbnail_url", { length: 256 }),
-      typeId: int("type_id"),
-      classificationId: int("classification_id"),
+      title: varchar("title", { length: 256 }),
+      isTrending: boolean("isTrending"),
+      year: int("year"),
+      thumbnailUrl: varchar("thumbnailUrl", { length: 256 }),
+      categoryId: int("categoryId"),
+      ratingId: int("ratingId"),
+      // isBookmarked: boolean("isBookmarked"),
     },
     (streamItem) => ({
-      nameIndex: uniqueIndex("name_idx").on(streamItem.name),
-      typeIdIndex: uniqueIndex("type_id_idx").on(streamItem.typeId),
-      classificationIdIndex: uniqueIndex("classification_id_idx").on(streamItem.classificationId),
+      titleIndex: uniqueIndex("title_idx").on(streamItem.title),
+     
     })
     
   );
 
-  export const type = mysqlTable(
-    "type",
+  export const category = mysqlTable(
+    "category",
     {
       id: serial("id").primaryKey(),
       name: varchar("name", { length: 256 }),
     }
   );
 
-  export const classification = mysqlTable(
-    "classification",
+  export const rating = mysqlTable(
+    "rating",
     {
       id: serial("id").primaryKey(),
       name: varchar("name", { length: 256 }),

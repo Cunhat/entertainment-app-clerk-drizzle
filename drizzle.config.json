@@ -1,6 +1,5 @@
 {
     "out": "./migrations",
     "schema": "./src/db",
-    "connectionString": "mysql://u97wfjf3cpjijgqjra6o:pscale_pw_DyZhxZg340Zz7Ame8WPMWtr4PrgPkKjNfFIm3lNJMAc@aws.connect.psdb.cloud/entertainment-app?ssl={\"rejectUnauthorized\":true}"
+    "connectionString": "mysql://2968lnaib4uvfsslpu14:pscale_pw_9Fs4B4hocwbeYWmagXHBuNogk9aRKTIYqJwLaP3AQpZ@aws.connect.psdb.cloud/entertainment-app?ssl={\"rejectUnauthorized\":true}"
 }
-
