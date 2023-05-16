@@ -17,7 +17,7 @@ export default function Login() {
           <Button>Login to your account</Button>
         </SignInButton>
         <div className="flex gap-2 justify-center">
-          <Body size="sm">Don't have an account?</Body>
+          <Body size="sm">Don&apos;t have an account?</Body>
           <SignUpButton redirectUrl="/">
             <Body size="sm" className="text-custom-red hover:cursor-pointer">
               Sign up
