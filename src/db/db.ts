@@ -3,6 +3,7 @@ import { drizzle } from "drizzle-orm/planetscale-serverless";
 import {streamItem, category, rating} from './schema'
 import { on } from 'events';
 import { InferModel, eq, sql } from 'drizzle-orm';
+import { type } from 'os';
 
 
 
@@ -23,3 +24,5 @@ export const getStreamItems = async () => {
     .leftJoin(rating, eq(streamItem.ratingId, rating.id));
      return streamItems;
   };
+
+  export type StreamItem = Awaited<ReturnType<typeof getStreamItems>>;

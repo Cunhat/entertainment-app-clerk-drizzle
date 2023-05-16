@@ -9,28 +9,36 @@ type Props = {
   isTrending?: boolean
   type: "movie" | "tvSeries"
   thumbnailUrl: string
+  rating: string
+  year: number
+  title: string
 }
 
 export const Thumbnail: React.FC<Props> = ({
   isTrending,
   type,
   thumbnailUrl,
+  rating,
+  year,
+  title,
 }) => {
   const [isHovered, setIsHovered] = useState(false)
 
-  console.log(thumbnailUrl)
-
   return (
     <div
-      className={`w-full h-full rounded-lg relative bg-[url(${
-        thumbnailUrl ?? "/large.jpg"
-      })] bg-cover bg-center flex`}
+      className={`w-full h-full rounded-lg relative bg-cover bg-center flex`}
       onMouseEnter={() => setIsHovered(!isHovered)}
       onMouseLeave={() => setIsHovered(!isHovered)}
     >
+      <Image
+        src={thumbnailUrl}
+        alt="Thumbnail"
+        layout="fill"
+        className="rounded-lg"
+      />
       {isTrending && (
         <div className="absolute bottom-6 left-6 flex flex-col gap-1">
-          <ItemTitle type={type!} />
+          <ItemTitle type={type!} year={year} rating={rating} title={title} />
         </div>
       )}
       {isHovered && (

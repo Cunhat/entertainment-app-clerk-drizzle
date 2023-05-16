@@ -26,6 +26,9 @@ export const StreamItem: React.FC<StreamProps> = ({
         type={type}
         isTrending={isTrending}
         thumbnailUrl={thumbnailUrl}
+        rating={rating}
+        year={year}
+        title={title}
       />
       <ItemTitle type={type} year={year} rating={rating} title={title} />
     </div>

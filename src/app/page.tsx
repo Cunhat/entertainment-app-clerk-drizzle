@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { getStreamItems } from "@/db/db"
+import { StreamItem as StreamItemType, getStreamItems } from "@/db/db"
 import { SignIn } from "@clerk/nextjs"
 import { useClerk } from "@clerk/nextjs/app-beta/client"
 
@@ -11,24 +11,40 @@ import { Input } from "@/components/ui/Input"
 import { Search } from "@/components/ui/Search"
 import { Thumbnail } from "@/components/ui/Thumbnail"
 
-const TrendingItem: React.FC<{ type: "movie" | "tvSeries" }> = ({ type }) => {
+const TrendingItem: React.FC<{
+  type: "movie" | "tvSeries"
+  year: number
+  rating: string
+  title: string
+  thumbnailUrl: string
+}> = ({ type, rating, year, title, thumbnailUrl }) => {
   return (
     <div className="min-h-[140px] min-w-[240px] md:min-w-[470px] md:min-h-[230px] flex-[0_0_auto] ">
-      <Thumbnail type={type} isTrending />
+      <Thumbnail
+        type={type}
+        isTrending
+        year={year}
+        rating={rating}
+        title={title}
+        thumbnailUrl={thumbnailUrl}
+      />
     </div>
   )
 }
 
-const Trending: React.FC = () => {
+const Trending: React.FC<{ values: Array<StreamItemType> }> = ({ values }) => {
   return (
     <div className="flex flex-nowrap overflow-x-auto gap-4 ">
-      <TrendingItem type="movie" />
-      <TrendingItem type="tvSeries" />
-      <TrendingItem type="tvSeries" />
-      <TrendingItem type="movie" />
-      <TrendingItem type="tvSeries" />
-      <TrendingItem type="movie" />
-      <TrendingItem type="tvSeries" />
+      {values?.map((item) => (
+        <TrendingItem
+          key={item.stream_item.id}
+          type={item.category?.name as "movie" | "tvSeries"}
+          rating={item?.rating?.name!}
+          year={item.stream_item.year!}
+          title={item.stream_item.title!}
+          thumbnailUrl={item.stream_item.thumbnailUrl!}
+        />
+      ))}
     </div>
   )
 }
@@ -43,7 +59,10 @@ export default async function Home() {
       <Search />
       <section className="flex flex-col">
         <Heading size="lg">Trending</Heading>
-        <Trending />
+
+        <Trending
+          values={streamItems.filter((item) => item.stream_item.isTrending)}
+        />
       </section>
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
