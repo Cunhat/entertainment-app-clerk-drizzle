@@ -32,7 +32,7 @@ const TrendingItem: React.FC<{
   )
 }
 
-const Trending: React.FC<{ values: Array<StreamItemType> }> = ({ values }) => {
+const Trending: React.FC<{ values: StreamItemType }> = ({ values }) => {
   return (
     <div className="flex flex-nowrap overflow-x-auto gap-4 ">
       {values?.map((item) => (
@@ -51,18 +51,16 @@ const Trending: React.FC<{ values: Array<StreamItemType> }> = ({ values }) => {
 
 export default async function Home() {
   const streamItems = await getStreamItems()
-
-  console.log(streamItems)
+  const trendingItems = streamItems.filter(
+    (item) => item.stream_item.isTrending
+  )
 
   return (
     <main className="flex w-full h-full flex-col gap-6 ">
       <Search />
       <section className="flex flex-col">
         <Heading size="lg">Trending</Heading>
-
-        <Trending
-          values={streamItems.filter((item) => item.stream_item.isTrending)}
-        />
+        <Trending values={trendingItems} />
       </section>
       <section className="flex-1 pr-4">
         <Heading size="lg">Recommended for you</Heading>
