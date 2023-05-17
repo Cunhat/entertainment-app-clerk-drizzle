@@ -41,7 +41,7 @@ export default function RootLayout({
               <div className="lg:h-full  box-border md:px-6 lg:px-0 lg:pb-8">
                 <NavBar />
               </div>
-              <main className="md:pl-6 md:pt-8 pt-6 pl-4 overflow-auto">
+              <main className="md:pl-6 md:pt-8 pt-6 pl-4 overflow-auto xl:justify-center">
                 {children}
               </main>
             </main>

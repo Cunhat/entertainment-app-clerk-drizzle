@@ -1,3 +1,4 @@
+import React from "react"
 import Image from "next/image"
 import { StreamItem as StreamItemType, getStreamItems } from "@/db/db"
 import { SignIn } from "@clerk/nextjs"
@@ -50,14 +51,15 @@ const Trending: React.FC<{ values: StreamItemType }> = ({ values }) => {
 }
 
 export default async function Home() {
+  // const [searchValue, setSearchValue] = React.useState("")
   const streamItems = await getStreamItems()
   const trendingItems = streamItems.filter(
     (item) => item.stream_item.isTrending
   )
 
   return (
-    <main className="flex w-full h-full flex-col gap-6 ">
-      <Search />
+    <main className="flex w-full h-full flex-col gap-6">
+      {/* <Search /> */}
       <section className="flex flex-col">
         <Heading size="lg">Trending</Heading>
         <Trending values={trendingItems} />
