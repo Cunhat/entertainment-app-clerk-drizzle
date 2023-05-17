@@ -25,4 +25,12 @@ export const getStreamItems = async () => {
      return streamItems;
   };
 
-  export type StreamItem = Awaited<ReturnType<typeof getStreamItems>>;
+export type StreamItem = Awaited<ReturnType<typeof getStreamItems>>;
+
+export const getMovies = async () => {
+  const streamItems = await db.select()
+  .from(streamItem)
+  .leftJoin(category, eq(streamItem.categoryId, category.id) && eq(category.name, 'Movie'))
+  .leftJoin(rating, eq(streamItem.ratingId, rating.id));
+   return streamItems;
+};
