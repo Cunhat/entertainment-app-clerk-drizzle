@@ -1,10 +1,10 @@
 import React from "react"
 import { StreamItem as StreamItemType, getMovies } from "@/db/db"
 
-import { Movie } from "@/components/movie"
+import { StreamCategories } from "@/components/streamCategories"
 
 export default async function Movies() {
   const streamItems = await getMovies()
 
-  return <Movie streamItems={streamItems} />
+  return <StreamCategories streamItems={streamItems} title="Movies" />
 }

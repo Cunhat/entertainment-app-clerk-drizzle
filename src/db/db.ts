@@ -34,3 +34,15 @@ export const getMovies = async () => {
   .leftJoin(rating, eq(streamItem.ratingId, rating.id));
    return streamItems;
 };
+
+export type Movies = Awaited<ReturnType<typeof getMovies>>;
+
+export const getTvSeries = async () => {
+  const streamItems = await db.select()
+  .from(streamItem)
+  .leftJoin(category, eq(streamItem.categoryId, category.id) && eq(category.name, 'TV Series'))
+  .leftJoin(rating, eq(streamItem.ratingId, rating.id));
+   return streamItems;
+};
+
+export type TvSeries = Awaited<ReturnType<typeof getTvSeries>>;
