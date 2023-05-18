@@ -30,9 +30,9 @@ export type StreamItem = Awaited<ReturnType<typeof getStreamItems>>;
 export const getMovies = async () => {
   const streamItems = await db.select()
   .from(streamItem)
-  .leftJoin(category, eq(streamItem.categoryId, category.id) && eq(category.name, 'Movie'))
+  .leftJoin(category, eq(streamItem.categoryId, category.id))
   .leftJoin(rating, eq(streamItem.ratingId, rating.id));
-   return streamItems;
+   return streamItems.filter((item) => item?.category?.name === 'movie');
 };
 
 export type Movies = Awaited<ReturnType<typeof getMovies>>;
@@ -40,9 +40,11 @@ export type Movies = Awaited<ReturnType<typeof getMovies>>;
 export const getTvSeries = async () => {
   const streamItems = await db.select()
   .from(streamItem)
-  .leftJoin(category, eq(streamItem.categoryId, category.id) && eq(category.name, 'TV Series'))
+  .leftJoin(category, eq(streamItem.categoryId, category.id))
   .leftJoin(rating, eq(streamItem.ratingId, rating.id));
-   return streamItems;
+
+  
+   return streamItems.filter((item) => item?.category?.name === 'tvSeries');
 };
 
 export type TvSeries = Awaited<ReturnType<typeof getTvSeries>>;
